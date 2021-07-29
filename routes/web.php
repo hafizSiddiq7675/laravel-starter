@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([ 'middleware' => ['auth', 'verified']], function() {
+    // Resource Route for project.
+    Route::resource('projects', ProjectController::class);
+    // Route for get project for yajra post request.
+    Route::get('get-projects', [ProjectController::class, 'getProjects'])->name('get-projects');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

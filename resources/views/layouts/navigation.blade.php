@@ -19,7 +19,7 @@
                 </div>
                 {{-- Projects Link --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         Projects
                     </x-nav-link>
                 </div>
